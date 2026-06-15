@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syncopate:wght@400;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
   <style>
     :root {
@@ -263,6 +264,18 @@
     }
     .link-row:hover .link-arrow { color: var(--accent); transform: translateX(4px); }
 
+    /* ── LinkedIn Badge wrapper ── */
+    .li-badge-wrap {
+      margin-top: 2.8rem;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    /* Force the LinkedIn badge to a dark-friendly look */
+    .li-badge-wrap .badge-base {
+      border-radius: 0 !important;
+    }
+
     /* ── Resume card ── */
     .resume-card {
       background: var(--surface);
@@ -319,61 +332,8 @@
     }
     .btn-download:hover { background: #9bb8d8; border-color: #9bb8d8; }
 
-    .resume-body {
-      padding: 1.8rem 2rem 1.8rem 2.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .resume-block-title {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.25em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .resume-entries { display: flex; flex-direction: column; gap: 1.3rem; }
-
-    .resume-entry-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .resume-entry-title {
-      font-family: var(--font-body);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .resume-entry-date {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      color: var(--text-dim);
-      white-space: nowrap;
-    }
-    .resume-entry-sub {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-top: 0.1rem;
-    }
-    .resume-entry-desc {
-      font-size: 1rem;
-      color: var(--text-dim);
-      margin-top: 0.4rem;
-      line-height: 1.55;
-    }
-
     .resume-note {
       padding: 1rem 2rem 1.2rem 2.4rem;
-      border-top: 1px solid var(--border);
       font-family: var(--font-mono);
       font-size: 0.6rem;
       letter-spacing: 0.1em;
@@ -383,6 +343,111 @@
       gap: 0.6rem;
     }
     .resume-note::before { content: '⚑'; color: var(--gold); }
+
+    /* ── Homelab Projects ── */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--surface);
+      padding: 1.6rem 1.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.4rem;
+      transition: background 0.2s;
+    }
+    .project-card:hover { background: var(--surface-2); }
+
+    .project-index {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      color: var(--accent-dim);
+      padding-top: 0.3rem;
+      min-width: 2rem;
+      flex-shrink: 0;
+    }
+
+    .project-body { flex: 1; }
+
+    .project-name {
+      font-family: var(--font-title);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+    }
+
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      padding: 0.2rem 0.55rem;
+      text-transform: uppercase;
+    }
+
+    .project-status {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      padding: 0.2rem 0.55rem;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .project-status.active {
+      color: #6fbf8a;
+      border: 1px solid #2a5c3a;
+    }
+    .project-status.wip {
+      color: var(--gold);
+      border: 1px solid #5c4020;
+    }
+
+    .projects-cta {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .projects-cta a {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-dim);
+      padding-bottom: 0.1rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .projects-cta a:hover { color: #fff; border-color: var(--accent); }
+    .projects-cta::before {
+      content: '';
+      width: 16px; height: 1px;
+      background: var(--accent-dim);
+    }
 
     /* ── Footer ── */
     footer {
@@ -423,7 +488,6 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* Language transition */
     [data-fr], [data-en] { transition: opacity 0.2s ease; }
 
     @media (max-width: 600px) {
@@ -432,6 +496,7 @@
       .resume-top { flex-direction: column; }
       .btn-download { width: 100%; text-align: center; }
       .lang-toggle { right: 1.2rem; }
+      .project-card { flex-direction: column; gap: 0.6rem; }
     }
   </style>
 </head>
@@ -461,8 +526,8 @@
         </em>
       </h1>
       <p class="hero-desc">
-        <span data-fr>Un espace dédié à mon profil professionnel — retrouvez mes coordonnées et mon CV ci-dessous.</span>
-        <span data-en style="display:none">A focused space for my professional profile — find my contact links and résumé below.</span>
+        <span data-fr>Un espace dédié à mon profil professionnel — retrouvez mes coordonnées, mon CV et mes projets homelab ci-dessous.</span>
+        <span data-en style="display:none">A focused space for my professional profile — find my contact links, résumé, and homelab projects below.</span>
       </p>
       <div class="scroll-hint">
         <span>
@@ -475,7 +540,7 @@
 
   <div class="divider"></div>
 
-  <!-- ── Links ── -->
+  <!-- ── Links + LinkedIn Badge ── -->
   <section class="section">
     <p class="section-label reveal">
       <span data-fr>Contact</span>
@@ -488,13 +553,13 @@
           <div class="link-icon">in</div>
           <div>
             <div class="link-label">LinkedIn</div>
-            <div class="link-value">https://www.linkedin.com/in/anis-fatmi-60b1853b0/</div>
+            <div class="link-value">linkedin.com/in/anis-fatmi-60b1853b0</div>
           </div>
         </div>
         <div class="link-arrow">↗</div>
       </a>
 
-      <a href="mailto:votre@email.com" class="link-row">
+      <a href="mailto:fatmianis09@gmail.com" class="link-row">
         <div class="link-row-left">
           <div class="link-icon">@</div>
           <div>
@@ -513,17 +578,32 @@
           <div class="link-icon">gh</div>
           <div>
             <div class="link-label">GitHub</div>
-            <div class="link-value">github.com/AnisF9</div>
+            <div class="link-value">github.com/anis-cyber9</div>
           </div>
         </div>
         <div class="link-arrow">↗</div>
       </a>
 
     </div>
+
+    <!-- LinkedIn Profile Badge (full) -->
+    <div class="li-badge-wrap reveal">
+      <div class="badge-base LI-profile-badge"
+           data-locale="en_US"
+           data-size="large"
+           data-theme="dark"
+           data-type="VERTICAL"
+           data-vanity="anis-fatmi-60b1853b0"
+           data-version="v1">
+        <a class="badge-base__link LI-simple-link"
+           href="https://ca.linkedin.com/in/anis-fatmi-60b1853b0?trk=profile-badge">Anis Fatmi</a>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
 
+  <!-- ── Resume (download only) ── -->
   <section class="section">
     <p class="section-label reveal">
       <span data-fr>Curriculum Vitæ</span>
@@ -534,102 +614,112 @@
       <div class="resume-top">
         <div>
           <div class="resume-name">Anis F.</div>
-          <!-- ✏️ Replace with your title/field -->
           <div class="resume-tagline">
             <span data-fr>// Votre titre · Ville, Province</span>
             <span data-en style="display:none">// Your Title · City, Province</span>
           </div>
         </div>
-        <!-- ✏️ Upload your PDF as "resume.pdf" to the repo root -->
         <a href="resume.pdf" download class="btn-download">
           <span data-fr>↓ Télécharger PDF</span>
           <span data-en style="display:none">↓ Download PDF</span>
         </a>
       </div>
 
-      <div class="resume-body">
-
-        <!-- EXPERIENCE -->
-        <div class="resume-block">
-          <div class="resume-block-title">
-            <span data-fr>Expérience</span>
-            <span data-en style="display:none">Experience</span>
-          </div>
-          <div class="resume-entries">
-
-            <div class="resume-entry">
-              <div class="resume-entry-head">
-                <!-- ✏️ Replace with your job title & company -->
-                <div class="resume-entry-title">
-                  <span data-fr>Titre du Poste — Nom de l'Entreprise</span>
-                  <span data-en style="display:none">Job Title — Company Name</span>
-                </div>
-                <div class="resume-entry-date">2023 — <span data-fr>Présent</span><span data-en style="display:none">Present</span></div>
-              </div>
-              <div class="resume-entry-sub">
-                <span data-fr>Ville, Province / Télétravail</span>
-                <span data-en style="display:none">City, Province / Remote</span>
-              </div>
-              <div class="resume-entry-desc">
-                <span data-fr>Brève description de votre rôle et de vos responsabilités. Qu'avez-vous construit, dirigé ou amélioré ?</span>
-                <span data-en style="display:none">Brief description of your role and responsibilities. What did you build, lead, or improve?</span>
-              </div>
-            </div>
-
-            <div class="resume-entry">
-              <div class="resume-entry-head">
-                <div class="resume-entry-title">
-                  <span data-fr>Rôle Précédent — Entreprise Précédente</span>
-                  <span data-en style="display:none">Previous Role — Previous Company</span>
-                </div>
-                <div class="resume-entry-date">2021 — 2023</div>
-              </div>
-              <div class="resume-entry-sub">
-                <span data-fr>Ville, Province</span>
-                <span data-en style="display:none">City, Province</span>
-              </div>
-              <div class="resume-entry-desc">
-                <span data-fr>Un bref résumé de votre rôle précédent. Deux à trois phrases suffisent.</span>
-                <span data-en style="display:none">A short summary of your previous role. Two to three sentences is ideal.</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- EDUCATION -->
-        <div class="resume-block">
-          <div class="resume-block-title">
-            <span data-fr>Éducation</span>
-            <span data-en style="display:none">Education</span>
-          </div>
-          <div class="resume-entries">
-
-            <div class="resume-entry">
-              <div class="resume-entry-head">
-                <!-- ✏️ Replace with your degree & school -->
-                <div class="resume-entry-title">
-                  <span data-fr>Diplôme — Nom de l'Université</span>
-                  <span data-en style="display:none">Degree — University Name</span>
-                </div>
-                <div class="resume-entry-date">2017 — 2021</div>
-              </div>
-              <div class="resume-entry-sub">
-                <span data-fr>Domaine d'études</span>
-                <span data-en style="display:none">Field of Study</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
       <div class="resume-note">
-        <span data-fr>Remplacez les espaces réservés ci-dessus par vos vraies informations. Téléversez votre PDF sous "resume.pdf" à la racine du dépôt.</span>
-        <span data-en style="display:none">Replace the placeholders above with your real info. Upload your PDF as "resume.pdf" to the repo root for the download button to work.</span>
+        <span data-fr>Téléversez votre CV sous "resume.pdf" à la racine du dépôt pour activer le téléchargement.</span>
+        <span data-en style="display:none">Upload your CV as "resume.pdf" to the repo root for the download button to work.</span>
       </div>
 
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Homelab Projects ── -->
+  <section class="section">
+    <p class="section-label reveal">
+      <span data-fr>Projets Homelab</span>
+      <span data-en style="display:none">Homelab Projects</span>
+    </p>
+
+    <div class="projects-grid reveal">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-index">01</div>
+        <div class="project-body">
+          <div class="project-name">
+            <span data-fr>Nom du projet</span>
+            <span data-en style="display:none">Project name</span>
+          </div>
+          <div class="project-desc">
+            <span data-fr>Brève description de ce que fait ce projet et pourquoi vous l'avez construit.</span>
+            <span data-en style="display:none">Short description of what this project does and why you built it.</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Proxmox</span>
+            <span class="project-tag">Docker</span>
+          </div>
+        </div>
+        <div class="project-status active">
+          <span data-fr>Actif</span>
+          <span data-en style="display:none">Active</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-index">02</div>
+        <div class="project-body">
+          <div class="project-name">
+            <span data-fr>Nom du projet</span>
+            <span data-en style="display:none">Project name</span>
+          </div>
+          <div class="project-desc">
+            <span data-fr>Brève description de ce que fait ce projet et pourquoi vous l'avez construit.</span>
+            <span data-en style="display:none">Short description of what this project does and why you built it.</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Pi-hole</span>
+            <span class="project-tag">Networking</span>
+          </div>
+        </div>
+        <div class="project-status active">
+          <span data-fr>Actif</span>
+          <span data-en style="display:none">Active</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-index">03</div>
+        <div class="project-body">
+          <div class="project-name">
+            <span data-fr>Nom du projet</span>
+            <span data-en style="display:none">Project name</span>
+          </div>
+          <div class="project-desc">
+            <span data-fr>Brève description de ce que fait ce projet et pourquoi vous l'avez construit.</span>
+            <span data-en style="display:none">Short description of what this project does and why you built it.</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Linux</span>
+            <span class="project-tag">Ansible</span>
+          </div>
+        </div>
+        <div class="project-status wip">
+          <span data-fr>En cours</span>
+          <span data-en style="display:none">WIP</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="projects-cta reveal">
+      <a href="https://github.com/anis-cyber9" target="_blank">
+        <span data-fr>Voir tous les dépôts sur GitHub ↗</span>
+        <span data-en style="display:none">See all repos on GitHub ↗</span>
+      </a>
     </div>
   </section>
 
@@ -670,11 +760,9 @@
 
     document.documentElement.lang = lang;
 
-    // Toggle button styles
     document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-    // Show/hide all translated spans
     document.querySelectorAll('[data-fr]').forEach(el => {
       el.style.display = lang === 'fr' ? '' : 'none';
     });
