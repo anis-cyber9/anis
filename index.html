@@ -275,6 +275,81 @@
     .li-badge-wrap .badge-base {
       border-radius: 0 !important;
     }
+    /* ── Custom LinkedIn Badge ── */
+    .li-custom-badge {
+      margin-top: 2.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.4rem 1.6rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.25s, background 0.25s, padding-left 0.25s;
+      position: relative;
+    }
+    .li-custom-badge::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, #0a66c2, var(--accent));
+    }
+    .li-custom-badge:hover {
+      border-color: var(--accent-dim);
+      background: var(--surface-2);
+      padding-left: 1.9rem;
+    }
+ 
+    .li-badge-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-title);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+ 
+    .li-badge-info { flex: 1; }
+ 
+    .li-badge-name {
+      font-family: var(--font-title);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+ 
+    .li-badge-sub {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+    }
+ 
+    .li-badge-logo {
+      flex-shrink: 0;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .li-custom-badge:hover .li-badge-logo { opacity: 1; }
+ 
+    .li-badge-arrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--accent-dim);
+      flex-shrink: 0;
+      transition: color 0.25s, transform 0.25s;
+    }
+    .li-custom-badge:hover .li-badge-arrow {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
 
     /* ── Resume card ── */
     .resume-card {
